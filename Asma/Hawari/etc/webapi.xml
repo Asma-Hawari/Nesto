@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Created By : Eng.Asma Hawari.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/order-details/entity/search" method="GET">
+        <service class="Asma\Hawari\Api\OrderDetailsRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/order-details/entity/:id" method="GET">
+        <service class="Asma\Hawari\Api\OrderDetailsRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/order-details/update" method="PUT">
+        <service class="Asma\Hawari\Api\OrderDetailsRepositoryInterface" method="editEntity"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/order-details/create" method="POST">
+        <service class="Asma\Hawari\Api\OrderDetailsRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/order-details/delete/:id" method="DELETE">
+        <service class="Asma\Hawari\Api\OrderDetailsRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/order-details/amasty_brands/search" method="GET">
+        <service class="Asma\Hawari\Api\OrderDetailsRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

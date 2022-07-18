@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Created By : Eng.Asma Hawari.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="order_details" resource="default" engine="innodb" comment="Order Details">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="order_id" padding="10" unsigned="true" nullable="false"  comment="Order Id as Foreign Key"/>
+        <column xsi:type="int" name="order_items_count" nullable="true"  comment="Order Items Count" />
+        <column xsi:type="int" name="order_shipping_amount" nullable="true" comment="Order Shipping Amount" />
+        <column xsi:type="decimal" name="order_grand_total" nullable="true"  comment="Order Grand Total" />
+        <column xsi:type="varchar" name="addition_info" nullable="true" length="255" comment="Additional Info" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ORDER_DETAIL_ORDER_ID_SALES_ORDER_ENTITY_ID" table="order_detail" column="order_id" referenceTable="sales_order" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <index referenceId="ORDER_DETAIL_ORDER_ID_SALES_ORDER_ENTITY_ID" indexType="btree">
+            <column name="order_id"/>
+        </index>
+    </table>
+    <table name="quote_address" resource="default" engine="innodb">
+        <column name="nearest_landmark" nullable="true" xsi:type="varchar" comment="Nearest Landmark" length="255"/>
+    </table>
+    <table name="sales_order_address" resource="default" engine="innodb">
+        <column name="nearest_landmark" nullable="true" xsi:type="varchar" comment="Nearest Landmark" length="255"/>
+    </table>
+</schema>

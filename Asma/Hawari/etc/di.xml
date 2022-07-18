@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Created By : Eng.Asma Hawari.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Asma\Hawari\Api\Data\OrderDetailsInterface" type="Asma\Hawari\Model\OrderDetails" />
+    <preference for="Asma\Hawari\Api\OrderDetailsRepositoryInterface" type="Asma\Hawari\Model\OrderDetailsRepository" />
+    <type name="Magento\Quote\Model\BillingAddressManagement">
+        <plugin disabled="false" name="Plugin_Magento_Quote_Model_BillingAddressManagement" sortOrder="10" type="Asma\Hawari\Plugin\Magento\Quote\Model\BillingAddressManagement"/>
+    </type>
+    <type name="Magento\Quote\Model\ShippingAddressManagement">
+        <plugin disabled="false" name="Plugin_Magento_Quote_Model_ShippingAddressManagement" sortOrder="10" type="Asma\Hawari\Plugin\Magento\Quote\Model\ShippingAddressManagement"/>
+    </type>
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+       <plugin disabled="false" name="Plugin_Magento_Checkout_Model_PaymentInformationManagement" sortOrder="10" type="Asma\Hawari\Plugin\Magento\Checkout\Model\PaymentInformationManagement"/>
+   </type>
+
+    <type name="Magento\Quote\Model\Quote\Address\ToOrderAddress">
+        <plugin name="item_quote_to_order_address" type="Zmage\Customfield\Plugin\ItemQuoteToOrderAddress"/>
+    </type>
+</config>
