@@ -35,10 +35,4 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route url="/V1/order-details/amasty_brands/search" method="GET">
-        <service class="Asma\Hawari\Api\OrderDetailsRepositoryInterface" method="getList"/>
-        <resources>
-            <resource ref="anonymous"/>
-        </resources>
-    </route>
 </routes>
